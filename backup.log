@@ -1,0 +1,20 @@
+2025-12-22 21:48:31,467 - INFO - Iniciando backup...
+2025-12-22 21:48:31,494 - INFO - Arquivo copiado: /origem/teste.txt -> /destino/20251222_214831/teste.txt
+2025-12-22 21:48:31,523 - INFO - Arquivo copiado: /origem/webconfig.txt -> /destino/20251222_214831/webconfig.txt
+2025-12-22 21:48:31,553 - INFO - Arquivo copiado: /origem/[Python para Automação em Devopsl]-[Atividade Final].pdf -> /destino/20251222_214831/[Python para Automação em Devopsl]-[Atividade Final].pdf
+2025-12-22 21:48:31,554 - INFO - Backup concluído com sucesso para pasta: /destino/20251222_214831
+2025-12-22 21:51:10,421 - INFO - Iniciando backup...
+2025-12-22 21:51:10,471 - INFO - Arquivo copiado: /origem/teste.txt -> /destino/20251222_215110/teste.txt
+2025-12-22 21:51:10,500 - INFO - Arquivo copiado: /origem/webconfig.txt -> /destino/20251222_215110/webconfig.txt
+2025-12-22 21:51:10,535 - INFO - Arquivo copiado: /origem/[Python para Automação em Devopsl]-[Atividade Final].pdf -> /destino/20251222_215110/[Python para Automação em Devopsl]-[Atividade Final].pdf
+2025-12-22 21:51:10,536 - INFO - Backup concluído com sucesso para pasta: /destino/20251222_215110
+2025-12-22 21:51:59,083 - INFO - Iniciando backup...
+2025-12-22 21:51:59,117 - INFO - Arquivo copiado: /origem/teste.txt -> /destino/20251222_215159/teste.txt
+2025-12-22 21:51:59,175 - INFO - Arquivo copiado: /origem/webconfig.txt -> /destino/20251222_215159/webconfig.txt
+2025-12-22 21:51:59,206 - INFO - Arquivo copiado: /origem/[Python para Automação em Devopsl]-[Atividade Final].pdf -> /destino/20251222_215159/[Python para Automação em Devopsl]-[Atividade Final].pdf
+2025-12-22 21:51:59,207 - INFO - Backup concluído com sucesso para pasta: /destino/20251222_215159
+2025-12-22 22:04:05,523 - INFO - Iniciando backup...
+2025-12-22 22:04:05,609 - INFO - Arquivo copiado: /origem/teste.txt -> /destino/20251222_220405/teste.txt
+2025-12-22 22:04:05,663 - INFO - Arquivo copiado: /origem/webconfig.txt -> /destino/20251222_220405/webconfig.txt
+2025-12-22 22:04:05,724 - INFO - Arquivo copiado: /origem/[Python para Automação em Devopsl]-[Atividade Final].pdf -> /destino/20251222_220405/[Python para Automação em Devopsl]-[Atividade Final].pdf
+2025-12-22 22:04:05,725 - INFO - Backup concluído com sucesso para pasta: /destino/20251222_220405

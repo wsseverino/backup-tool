@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="docEngine" type="ESB.Documento.Painel.Core.Configuration.EngineConfigurationSection, ESB.Documento.Painel.Core" />
+    <section name="ftpProcessor" type="ESB.Documento.Painel.Core.Configuration.FtpProcessorConfigurationSection, ESB.Documento.Painel.Core" />
+    <section name="planetPress" type="ESB.Documento.Painel.Core.Configuration.PlanetPressConfigurationSection, ESB.Documento.Painel.Core" />
+    <section name="fileProcessor" type="ESB.Documento.Painel.Core.Configuration.FileProcessorConfigurationSection, ESB.Documento.Painel.Core" />
+    <section name="fileImport" type="ESB.Documento.Painel.Core.Configuration.FileImportConfigurationSection, ESB.Documento.Painel.Core" />
+  </configSections>
+
+  <docEngine searchDaysAhead="15" searchDaysAheadInfra="5" messagesPerCall="100" messagesPerCallInfra="5000" viewLinkFormat="http://svc.esb.mongeral.seguros/ESB.Documento/view?sn=PainelDocumentos&amp;id=">
+    <paths>
+      <add type="Print" path="F:\Documentos.Output.PlanetPress\input\impressao" />
+      <add type="Email" path="F:\Documentos.Output.PlanetPress\input\email" />
+      <add type="Sms" path="F:\Documentos.Output.PlanetPress\input\Sms" />
+      <add type="PrintCenter" path="F:\Documentos.Output.PlanetPress\input\ftp" />
+      <add type="EmailMarketing" path="F:\Documentos.Output.PlanetPress\input\ftp" />
+      <add type="EmailComprova" path="F:\Documentos.Output.PlanetPress\input\email" />
+      <add type="Plugin" path="F:\Documentos.Output.PlanetPress\input\plugin" />
+      <add type="Arquivo" path="F:\Documentos.Output.PlanetPress\input\file" />
+      <add type="Push" path="F:\Documentos.Output.PlanetPress\input\push" />
+      <add type="EmailRastreavel" path="F:\Documentos.Output.PlanetPress\input\emailrastreavel" />
+      <add type="SmsPrioritario" path="F:\Documentos.Output.PlanetPress\input\smsPrioritario" />
+      <add type="EmailPrioritario" path="F:\Documentos.Output.PlanetPress\input\emailPrioritario" />
+      <add type="Jornada" path="F:\Documentos.Output.PlanetPress\input\jornada" />
+      <add type="Whatsapp" path="F:\Documentos.Output.PlanetPress\input\whatsapp" />
+      <add type="DocuSign" path="F:\Documentos.Output.PlanetPress\input\docusign" />
+      <add type="PdfTemplateHtml" path="F:\Documentos.Output.PlanetPress\input\pdfTemplateHtml" />
+    </paths>
+  </docEngine>
+
+  <ftpProcessor defaultSource="Eximia" backupDirectory="F:\Backup_Lotes">
+    <sources>
+      <add name="Gráfica Bradesco"
+           server="integracao.mongeralaegon.com.br"
+           user="printcenter_bradesco"
+           password="9fv6gKsbmX2@atta"
+           directory="/smarapd"
+           createBackup="true"
+           passiveMode="true" />
+      <add name="WinSocial"
+           server="integracao.mongeralaegon.com.br"
+           user="winsocial"
+           password="IwKDAxr94O"
+           directory="/producao"
+           createBackup="false"
+           passiveMode="true" />
+      <add name="Eximia"
+           server="169.57.161.29"
+           user="mongeral"
+           password="M0ng3ra1"
+           directory="/Mongeral/In"
+           createBackup="true"
+           passiveMode="false" />
+      <add name="Indústria Gráfica Brasileira"
+           server="ftp.igb.com.br"
+           user="mongeral"
+           password="woS!uT28b74h+sw-NlTL"
+           directory="/"
+           createBackup="true"
+           passiveMode="true" />
+      <add name="Casa Gráfica"
+           server="integracao.mongeralaegon.com.br"
+           user="graficabmp"
+           password="7@pOSTGbM4Bi3l*a"
+           directory="/graficabmp"
+           createBackup="true"
+           passiveMode="true" />
+      <!-- Limbo não precisa de conversão -->
+      <add name="Limbo" server="0.0.0.0" user="limbo" password="limbo" directory="/" createBackup="true" passiveMode="false"/>
+    </sources>
+
+    <documentMapping>
+      <add document="Seguro.Fatura.Individual" source="Gráfica Bradesco" />
+      <add document="Seguro.Certificado.VG.Finsol" source="Limbo" />
+      <add document="Seguro.Certificado.VI" source="Limbo" />
+    </documentMapping>
+  </ftpProcessor>
+
+  <fileProcessor>
+    <sources>
+	  <add name="PrevCom-BRC" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\PrevComBRC\Producao"/>
+	  <add name="PrevCom-MS" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\PrevcomMS\Producao"/>
+	  <add name="PrevCom-PA" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\PrevcomPA\Producao"/>
+	  <add name="PrevCom-RO" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\PrevComRO\Producao"/>
+	  <add name="PrevCom-SP" directoryPath="\\integracao.mongeralaegon.com.br\spprevcom"/>
+      <add name="PrevCom-MG" directoryPath="\\integracao.mongeralaegon.com.br\prevcomMG"/>
+	  <add name="PrevCom-Multi" directoryPath="\\integracao.mongeralaegon.com.br\PrevcomMulti"/>
+	  <add name="Preves" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\Preves\Producao"/>
+      <add name="WinSocial" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\Parceria.Winsocial\Certificados"/>
+	  <add name="Carta.Corporativa" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\Carta.Corporativa\Producao"/>
+      <add name="KitBoasVindas.Mongeral" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\KitBoasVindas.Mongeral\Producao"/>
+      <add name="Quanta" directoryPath="\\fsmaginterdep\INTERDEP\Individual\RepDoc\Quanta\Producao"/>
+      <add name="Certificado.VI" directoryPath="G:\Certificados VI"/>
+    </sources>
+  </fileProcessor>
+
+  <fileImport serviceUrl="http://localhost:8081/Importacao" />
+
+  <planetPress documentsFolder="C:\Documents and Settings\All Users\Objectif Lune\PlanetPress Suite 7\PlanetPress Watch\Documents">
+    <importFolders>
+      <add path="C:\Documents and Settings\All Users\Objectif Lune\PlanetPress Suite 7\PlanetPress Watch\Documents\In" />
+    </importFolders>
+  </planetPress>
+
+  <connectionStrings>
+    <add name="connectionCA" connectionString="	Data Source=apimga-br.database.windows.net,1433;Initial Catalog=ControleAcesso;User Id=usr_ControleAcesso;Password=9bxSa8kKSuDqB4rC;MultipleActiveResultSets=true;Pooling=true;Max Pool Size=200;Min Pool Size=10;Application Name=Gestao de Identidade;"/>
+  </connectionStrings>
+
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="PreserveLoginUrl" value="true" />
+    <add key="ClientValidationEnabled" value="false" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="false" />
+    <!-- Controle de acesso -->
+    <add key="descricao" value="ESB.Documento.Painel" />
+    <add key="dominioAD" value="mongeral" />
+    <add key="usuarioConexaoAD" value="srv_CtrlAcesso" />
+    <add key="senhaConexaoAD" value="ugy2gvC4" />
+    <!-- Controle de acesso > HOMOLOGACAO -->
+    <add key="idSistema" value="8e6df406-c878-4bf7-b6ec-b5720078caa3" />
+    <!-- Application Insights -->
+    <add key="CadeiaValor" value="Suporte" />
+    <add key="Solucao" value="GestaoEletronicaDocumentos" />
+    <add key="Aplicacao.Nome" value="ESB.Documentos.Painel" />
+    <add key="Aplicacao.Versao" value="1.0" />
+    <add key="InstrumentationKey" value="6ecf7abd-ef54-4158-9f31-52181cfa8bd2" />
+  </appSettings>
+
+  <system.web>
+    <compilation debug="false" targetFramework="4.6.2" />
+    <globalization uiCulture="pt-BR" culture="pt-BR" />
+    <!--10 minutos de timeout e upload de no máxmio 10 Mb-->
+    <httpRuntime executionTimeout="600" enableVersionHeader="false" maxRequestLength="10485760" />
+    <sessionState mode="Off" />
+    <!--Usado para WMI-->
+    <identity impersonate="true"  password="planet2011!!" userName="mongeral\srv_planetpress" />
+    <pages>
+      <namespaces>
+        <add namespace="System.Web.Helpers" />
+        <add namespace="System.Web.Mvc" />
+        <add namespace="System.Web.Mvc.Ajax" />
+        <add namespace="System.Web.Mvc.Html" />
+        <add namespace="System.Web.Optimization" />
+        <add namespace="System.Web.Routing" />
+        <add namespace="System.Web.WebPages" />
+      </namespaces>
+    </pages>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Home/Login" defaultUrl="~/Home/Index" timeout="2880" name=".REPDOC" />
+    </authentication>
+    <roleManager enabled="true" defaultProvider="MAGRoleProvider">
+      <providers>
+        <clear />
+        <add applicationName="ESB.Documento.Painel" name="MAGRoleProvider" type="ESB.ControleAcesso.MAGRoleProvider" />
+      </providers>
+    </roleManager>
+    <membership defaultProvider="MAGMembershipProvider">
+      <providers>
+        <clear />
+        <add name="MAGMembershipProvider" type="ESB.ControleAcesso.MAGMembershipProvider" />
+      </providers>
+    </membership>
+  </system.web>
+
+  <system.webServer>
+    <directoryBrowse enabled="true" />
+    <httpErrors errorMode="Detailed" />
+    <validation validateIntegratedModeConfiguration="true" />
+    <defaultDocument>
+      <files>
+        <clear />
+      </files>
+    </defaultDocument>
+    <security>
+      <authorization>
+        <clear />
+        <add accessType="Allow" users="*" />
+      </authorization>
+      <requestFiltering>
+        <!--Upload de no máximo 10 Mb-->
+        <requestLimits maxAllowedContentLength="10485760" />
+      </requestFiltering>
+    </security>
+    <httpProtocol>
+      <customHeaders>
+        <clear />
+        <add name="X-UA-Compatible" value="IE=9;IE=Edge" />
+      </customHeaders>
+    </httpProtocol>
+    <modules runAllManagedModulesForAllRequests="true">
+      <remove name="WebDAVModule" />
+      <remove name="TelemetryCorrelationHttpModule" />
+      <remove name="ApplicationInsightsWebTracking" />
+      <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="managedHandler" />
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+    </modules>
+    <handlers>
+      <remove name="WebDAV" />
+      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" />
+      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" />
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+      <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" />
+      <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+    </handlers>
+  </system.webServer>
+
+  <system.serviceModel>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" />
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="ESB.Documento.Painel.Infra.InfraBehavior">
+          <serviceMetadata httpGetEnabled="true" />
+          <serviceDebug includeExceptionDetailInFaults="true" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <bindings>
+      <basicHttpBinding>
+        <!--INFRA = ENDPOINT DO SITE-->
+        <binding name="BasicHttpBinding_IInfraOutputProcessor" closeTimeout="00:05:00" openTimeout="00:05:00" receiveTimeout="02:00:00" sendTimeout="02:00:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferSize="10485760" maxBufferPoolSize="10485760" maxReceivedMessageSize="10485760" messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered" useDefaultWebProxy="true">
+          <readerQuotas maxDepth="32" maxStringContentLength="10485760" maxArrayLength="10485760" maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <security mode="None">
+            <transport clientCredentialType="None" proxyCredentialType="None" realm="" />
+            <message clientCredentialType="UserName" algorithmSuite="Default" />
+          </security>
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <services>
+      <!--INFRA = ENDPOINT DO SITE-->
+      <service behaviorConfiguration="ESB.Documento.Painel.Infra.InfraBehavior" name="ESB.Documento.Painel.Infra.Infra">
+        <endpoint address="" binding="basicHttpBinding" bindingName="BasicHttpBinding_IInfraOutputProcessor" contract="ESB.Documento.Painel.Infra.IInfra">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange" />
+      </service>
+    </services>
+  </system.serviceModel>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-12.0.0.0" newVersion="12.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.IdentityModel.Clients.ActiveDirectory" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.5.1.0" newVersion="4.5.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Azure.Services.AppAuthentication" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-1.2.1.0" newVersion="1.2.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.IdentityModel.Tokens.Jwt" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.5.0.0" newVersion="5.5.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.IdentityModel.Tokens" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.5.0.0" newVersion="5.5.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Memory" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.1" newVersion="4.0.1.1" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
