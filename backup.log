@@ -18,3 +18,8 @@
 2025-12-22 22:04:05,663 - INFO - Arquivo copiado: /origem/webconfig.txt -> /destino/20251222_220405/webconfig.txt
 2025-12-22 22:04:05,724 - INFO - Arquivo copiado: /origem/[Python para Automação em Devopsl]-[Atividade Final].pdf -> /destino/20251222_220405/[Python para Automação em Devopsl]-[Atividade Final].pdf
 2025-12-22 22:04:05,725 - INFO - Backup concluído com sucesso para pasta: /destino/20251222_220405
+2025-12-22 19:59:52,026 - INFO - Iniciando backup...
+2025-12-22 19:59:52,056 - INFO - Arquivo copiado: Origem/teste.txt -> Destino/20251222_195952/teste.txt
+2025-12-22 19:59:52,079 - INFO - Arquivo copiado: Origem/webconfig.txt -> Destino/20251222_195952/webconfig.txt
+2025-12-22 19:59:52,106 - INFO - Arquivo copiado: Origem/[Python para Automação em Devopsl]-[Atividade Final].pdf -> Destino/20251222_195952/[Python para Automação em Devopsl]-[Atividade Final].pdf
+2025-12-22 19:59:52,106 - INFO - Backup concluído com sucesso para pasta: Destino/20251222_195952
